@@ -21,14 +21,14 @@ int main() {
     while(1) {
         printf("1: Encryption\n2: Decryption\n3: Exit\nSelect Operation => ");
         scanf("%d", &op);
-        // To consume newline character left by scanf
+        
         scanf("%c", &temp);
 
         switch(op) {
             case 1:
                 printf("Enter message to Encrypt: ");
                 fgets(s, MAX_MESSAGE_LENGTH, stdin);
-                s[strcspn(s, "\n")] = 0; // Remove trailing newline
+                s[strcspn(s, "\n")] = 0; 
 
                 if(RAND_bytes(key, sizeof(key)) != 1) {
                     printf("Error generating random key.\n");
@@ -89,7 +89,7 @@ int main() {
             case 2:
                 printf("Enter Encrypted Message (in hexadecimal): ");
                 fgets(s, MAX_MESSAGE_LENGTH, stdin);
-                s[strcspn(s, "\n")] = 0; // Remove trailing newline
+                s[strcspn(s, "\n")] = 0; 
 
                 int inlen = strlen(s) / 2;
                 unsigned char *inbuf = malloc(inlen * sizeof(unsigned char));
