@@ -15,7 +15,7 @@ int main() {
 
     int op;
     unsigned char key[16];
-    unsigned char iv[16];
+    unsigned char iv[16];   
     char temp;
 
     while(1) {
