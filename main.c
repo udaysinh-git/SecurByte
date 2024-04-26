@@ -7,6 +7,7 @@
 #define MAX_MESSAGE_LENGTH 1024
 
 int main() {
+    system("clear");
     char *s = malloc(MAX_MESSAGE_LENGTH);
     if (!s) {
         printf("Failed to allocate memory for the message.\n");

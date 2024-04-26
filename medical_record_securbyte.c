@@ -29,6 +29,17 @@ void register_patient() {
     fgets(new_patient->prn, sizeof(new_patient->prn), stdin);
     new_patient->prn[strcspn(new_patient->prn, "\n")] = 0; 
 
+    // Check if a patient with the same PRN already exists
+    Patient *current = head;
+    while (current != NULL) {
+        if (strcmp(current->prn, new_patient->prn) == 0) {
+            printf("A patient with this PRN already exists.\n");
+            free(new_patient);
+            return;
+        }
+        current = current->next;
+    }
+
     char data[MAX_MESSAGE_LENGTH];
     printf("Enter medical record data for the new patient (NAME,AGE,SEX,BLOOD): ");
     fgets(data, sizeof(data), stdin);
@@ -305,6 +316,7 @@ void list_patients() {
     }
 }
 int main() {
+    system("clear");
     int op;
     while(1) {
         printf("\n\n1: Register Patient\n2: View Patient\n3: Update Patient\n4: Delete Patient\n5: List Patients\n6: Exit\nSelect Operation => ");
